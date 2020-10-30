@@ -1,7 +1,15 @@
+import React from "react";
 import "./App.css";
+import SearchInput from "./components/SearchInput";
+import SearchResult from "./components/SearchResult";
 
 function App() {
-  return <h1>App</h1>;
+  return (
+    <>
+      <SearchInput />
+      <SearchResult />
+    </>
+  );
 }
 
 export default App;
