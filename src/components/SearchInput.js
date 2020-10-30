@@ -3,6 +3,11 @@ import "../App.scss";
 
 function SearchInput({ onSubmit }) {
   const [input, setInput] = React.useState("");
+  const inputRef = React.useRef();
+
+  React.useEffect(() => {
+    inputRef.current.focus();
+  });
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -12,6 +17,7 @@ function SearchInput({ onSubmit }) {
     e.preventDefault();
 
     onSubmit(input);
+    setInput("");
   };
 
   console.log("input", input);
@@ -24,6 +30,7 @@ function SearchInput({ onSubmit }) {
         placeholder="Github 프로필을 검색해보세요"
         value={input}
         onChange={handleChange}
+        ref={inputRef}
       />
     </form>
   );
