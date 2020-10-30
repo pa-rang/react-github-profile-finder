@@ -13,15 +13,11 @@ function App() {
     setUser(data);
   };
 
-  React.useEffect(() => {
-    getUser("pa-rang");
-  }, []);
-
   console.log("user", user);
 
   return (
     <>
-      <SearchInput />
+      <SearchInput onSubmit={getUser} />
       <SearchResult user={user} />
     </>
   );
