@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.scss";
 
 function SearchInput({ onSubmit }) {
   const [input, setInput] = React.useState("");
@@ -19,6 +20,7 @@ function SearchInput({ onSubmit }) {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        className="search-input"
         placeholder="Github 프로필을 검색해보세요"
         value={input}
         onChange={handleChange}
