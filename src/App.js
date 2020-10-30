@@ -2,24 +2,19 @@ import React from "react";
 import "./App.css";
 import SearchInput from "./components/SearchInput";
 import SearchResult from "./components/SearchResult";
-import axios from "axios";
-
-const client = axios.create({
-  baseURL: "https://api.github.com/users/",
-});
+import { getUserAPI } from "./lib/api";
 
 function App() {
   const [user, setUser] = React.useState(null);
 
-  const getUserAPI = async (username) => {
-    const { data } = await client.get(username);
-    console.log("data", data);
+  const getUser = async (username) => {
+    const data = await getUserAPI(username);
 
     setUser(data);
   };
 
   React.useEffect(() => {
-    getUserAPI("pa-rang");
+    getUser("pa-rang");
   }, []);
 
   console.log("user", user);
@@ -27,7 +22,7 @@ function App() {
   return (
     <>
       <SearchInput />
-      <SearchResult user={user}/>
+      <SearchResult user={user} />
     </>
   );
 }
