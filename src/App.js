@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <SearchInput />
-      <SearchResult />
+      <SearchResult user={user}/>
     </>
   );
 }
