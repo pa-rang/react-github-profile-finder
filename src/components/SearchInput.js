@@ -20,8 +20,6 @@ function SearchInput({ onSubmit }) {
     setInput("");
   };
 
-  console.log("input", input);
-
   return (
     <form onSubmit={handleSubmit}>
       <input
