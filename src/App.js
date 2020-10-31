@@ -5,20 +5,27 @@ import SearchResult from "./components/SearchResult";
 import { getUserAPI } from "./lib/api";
 
 function App() {
-  const [user, setUser] = React.useState(null);
+  const [userState, setUserState] = React.useState({
+    status: "idle",
+    user: null,
+  });
 
   const getUser = async (username) => {
-    const data = await getUserAPI(username);
+    setUserState({ ...userState, status: "pending" });
 
-    setUser(data);
+    try {
+      const data = await getUserAPI(username);
+      setUserState({ status: "resolved", user: data });
+    } catch (error) {
+      setUserState({ status: "rejected", user: null });
+      console.error(error);
+    }
   };
-
-  console.log("user", user);
 
   return (
     <div className="search-wrapper">
       <SearchInput onSubmit={getUser} />
-      <SearchResult user={user} />
+      <SearchResult userState={userState} />
     </div>
   );
 }
