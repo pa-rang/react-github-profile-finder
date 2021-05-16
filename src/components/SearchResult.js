@@ -1,5 +1,4 @@
 import React from "react";
-import "../App.scss";
 import UserCard from "./search/UserCard";
 import Loading from "./search/Loading";
 import NoResult from "./search/NoResult";
