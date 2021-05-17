@@ -8,20 +8,17 @@ function SearchResult({ userState }) {
 
   switch (status) {
     case "pending":
-      console.log("pending");
       return <Loading />;
 
     case "resolved":
-      console.log("resolved");
       return <UserCard user={user} />;
 
     case "rejected":
-      console.log("rejected");
       return <NoResult />;
 
     case "idle":
     default:
-      return <div></div>;
+      return <div />;
   }
 }
 

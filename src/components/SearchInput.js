@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
 import React from "react";
+import styled from "@emotion/styled";
 
 const Input = styled.input`
   background-color: #24272b;
@@ -21,7 +21,7 @@ const Input = styled.input`
   }
 `;
 
-function SearchInput({ onSubmit }) {
+function SearchInput({ getUser }) {
   const [input, setInput] = React.useState("");
   const inputRef = React.useRef();
 
@@ -36,7 +36,7 @@ function SearchInput({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onSubmit(input);
+    getUser(input);
     setInput("");
   };
 
@@ -44,7 +44,6 @@ function SearchInput({ onSubmit }) {
     <form onSubmit={handleSubmit}>
       <Input
         type="text"
-        className="search-input"
         placeholder="Github 프로필을 검색해보세요"
         value={input}
         onChange={handleChange}
