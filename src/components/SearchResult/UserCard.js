@@ -19,11 +19,9 @@ const CardWrapper = styled.div`
   & > div {
     color: #e5e6e7;
     margin-left: 2rem;
-
     h2 {
       margin-top: 0;
     }
-
     ul {
       display: flex;
       justify-content: space-between;
@@ -31,15 +29,13 @@ const CardWrapper = styled.div`
       padding: 0;
       max-width: 400px;
     }
-    & > div {
-      li {
-        display: flex;
-        align-items: center;
-        margin-right: 0.5rem;
-      }
-      strong {
-        margin-right: 0.5rem;
-      }
+    li {
+      display: flex;
+      align-items: center;
+      margin-right: 0.5rem;
+    }
+    strong {
+      margin-right: 0.5rem;
     }
   }
 `;
@@ -50,7 +46,7 @@ const UserCard = ({ user }) => (
     <div>
       <h2>{user.name}</h2>
       <p>{user.bio}</p>
-      <ul className="user-info-list">
+      <ul>
         <li>
           <strong>Followers</strong> {user.followers}
         </li>
